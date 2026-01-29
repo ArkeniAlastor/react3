@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/babel">
+
+        const Nav = ({children}) => (
+            <div className="nav-item">
+                <a href="#">{children}</a>
+            </div>
+        );
+
+        const Header = () => (
+            <div id="myheader">
+                <div className="header-left">Logo</div>
+                <div className="header-center">Заголовок</div>
+                <div className="header-right">
+                    <Nav>Меню1</Nav>
+                    <Nav>Меню2</Nav>
+                    <Nav>Меню3</Nav>
+                </div>
+            </div>
+        );
+
+        const LeftMenu = () => (
+            <div id="leftmenu">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        );
+
+        const CategoryItem = ({title, text, img}) => (
+            <div className="category-item">
+                {img && <img src={img} alt="" />}
+                <h3>{title}</h3>
+                <p>{text}</p>
+            </div>
+        );
+
+        const Main = ({children}) => (
+            <div id="main">{children}</div>
+        );
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const items = [
+            {title: 'Плюшевый мишка', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHWOg4cZuG6hWcQLX_SLNoaYCNMtlHhprfw&s'},
+            {title: 'Мобильный телефон', img: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSaJKiwoYDENfPCvAih0MH8-OxVPQAnE-PxN9mIbR0cCYp0E5jCx4BgmpHtmdHvDg5GR3ufHCI7mWR1dNKd6E3ChdytiF9PWQM9w6PD7oPKaHfzAIOLanG3iQ'},
+
+        ];
+
+        ReactDOM.createRoot(document.getElementById("root")).render(
+            <div>
+                <Header />
+
+                <div id="page">
+                    <LeftMenu />
+
+                    <Main>
+                        <div id="content">
+                            {items.map((it, i) => (
+                                <CategoryItem key={i} title={it.title} text={'Краткое описание товара.'} img={it.img} />
+                            ))}
+                        </div>
+                    </Main>
+                </div>
+            </div>
+        );
+    </script>
+
+</body>
+
+</html>
