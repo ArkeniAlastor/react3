@@ -14,7 +14,7 @@
 
     <script type="text/babel">
 
-        const Nav = ({children}) => (
+        const Nav = ({ children }) => (
             <div className="nav-item">
                 <a href="#">{children}</a>
             </div>
@@ -44,16 +44,16 @@
             </div>
         );
 
-        const CategoryItem = ({title, text, img}) => (
+        const CategoryItem = (props) => (
             <div className="category-item">
-                {img && <img src={img} alt="" />}
-                <h3>{title}</h3>
-                <p>{text}</p>
+                {props.img && <img src={props.img} alt="" />}
+                <h3>{props.title}</h3>
+                <p>{props.text}</p>
             </div>
         );
 
-        const Main = ({children}) => (
-            <div id="main">{children}</div>
+        const Main = (props) => (
+            <div id="main">{props.children}</div>
         );
     </script>
 
@@ -67,8 +67,8 @@
     <script type="text/babel">
 
         const items = [
-            {title: 'Плюшевый мишка', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHWOg4cZuG6hWcQLX_SLNoaYCNMtlHhprfw&s'},
-            {title: 'Мобильный телефон', img: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSaJKiwoYDENfPCvAih0MH8-OxVPQAnE-PxN9mIbR0cCYp0E5jCx4BgmpHtmdHvDg5GR3ufHCI7mWR1dNKd6E3ChdytiF9PWQM9w6PD7oPKaHfzAIOLanG3iQ'},
+            { title: 'Плюшевый мишка', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHWOg4cZuG6hWcQLX_SLNoaYCNMtlHhprfw&s' },
+            { title: 'Мобильный телефон', img: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSaJKiwoYDENfPCvAih0MH8-OxVPQAnE-PxN9mIbR0cCYp0E5jCx4BgmpHtmdHvDg5GR3ufHCI7mWR1dNKd6E3ChdytiF9PWQM9w6PD7oPKaHfzAIOLanG3iQ' },
 
         ];
 
